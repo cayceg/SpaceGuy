@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/menu_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/title_screen/logo.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/bg/GAME_BG.png" type="Texture" id=3]
+[ext_resource path="res://scenes/TitleScreen.gd" type="Script" id=4]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+stretch_mode = 7
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1160.0
+margin_bottom = 640.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 1040.0
+margin_bottom = 65.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 69.0
+margin_right = 1040.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_left = 456.0
+margin_top = 387.0
+margin_right = 584.0
+margin_bottom = 491.0
+size_flags_horizontal = 6
+size_flags_vertical = 10
+alignment = 1
+
+[node name="NewGameButton" parent="Menu/CenterRow/ButtonsContainer" instance=ExtResource( 1 )]
+margin_right = 128.0
+margin_bottom = 32.0
+rect_scale = Vector2( 1, 1 )
+expand_icon = false
+scene_to_load = "res://scenes/GameScreen.tscn"
+
+[node name="OptionsButton" parent="Menu/CenterRow/ButtonsContainer" instance=ExtResource( 1 )]
+margin_top = 36.0
+margin_right = 128.0
+margin_bottom = 68.0
+rect_scale = Vector2( 1, 1 )
+text = "OPTIONS"
+scene_to_load = "res://scenes/PlaceholderScreen.tscn"
+
+[node name="QuitButton" parent="Menu/CenterRow/ButtonsContainer" instance=ExtResource( 1 )]
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 104.0
+rect_scale = Vector2( 1, 1 )
+text = "QUIT"
+scene_to_load = "quit"
